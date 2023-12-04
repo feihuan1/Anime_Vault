@@ -8,4 +8,4 @@
 
 ## lib
 1. use react intersection observer detect where user scoll.approach in LoadMore.tsx doc: https://www.npmjs.com/package/react-intersection-observer
-2. framer motion to animate the page loading delay, different approach with React, demo in AnimeCard.tsx  doc: https://www.framer.com/motion/
+2. use framer motion to animate loadmore delay, different approach with React, in AnimeCard.tsx doc: https://www.framer.com/motion/
