@@ -7,27 +7,37 @@ const page = async ({ params }: { params: { id: string } }) => {
 
   const data = await fetchAnimeById(id);
 
-  const selectedData = (({ id, name, image, url, score, episodes, released_on, duration, description }) => ({ id, name, image, url, score, episodes, released_on, duration, description }))(data); 
-
-  
-
-  console.log(selectedData)
+  const selectedData = (({
+    url,
+    name,
+    score,
+    episodes,
+    released_on,
+    duration,
+    description,
+  }) => ({
+    url,
+    name,
+    score,
+    episodes,
+    released_on,
+    duration,
+    description,
+  }))(data);
 
   return (
-    <section className="w-screen min-h-screen flex flex-col md:flex-row p-12 justify-start gap-12 mt-12">
-      <div className="w-1/2 object-contain flex items-start justify-center">
-        <Image 
-            src={`https://shikimori.one/${data.image.original}`} 
-            width={500} 
-            height={700}
-            alt={data.name} 
-            className="object-contain rounded-xl"
+    <section className="w-screen min-h-screen flex flex-col md:flex-row p-12 justify-start gap-12 mt-12 max-w-7xl">
+      <div className="w-full md:w-1/2 flex items-start justify-center  ">
+        <Image
+          src={`https://shikimori.one${data.image.original}`}
+          width={600}
+          height={700}
+          alt={data.name}
+          className="object-contain rounded-xl"
         />
       </div>
-      <div className="flex flex-col gap-3 ">
-
-      {data.name}
-      <AnimeInfo />
+      <div className="w-full md:w-1/2 flex flex-col gap-3 ">
+        <AnimeInfo animeData={selectedData} />
       </div>
     </section>
   );
