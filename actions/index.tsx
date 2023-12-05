@@ -8,7 +8,12 @@ export const fetchAnime = async (page: number) => {
   );
   const data = await response.json();
 
-  return data.map((item: AnimeProp, index: number) => (
-    <AnimeCard key={item.id} anime={item} index={index} />
-  ));
+  return data
 };
+
+export const fetchAnimeById = async (id: string) => {
+    const res = await fetch(`https://shikimori.one/api/animes/${id}`) 
+    const data = await res.json()
+    // console.log(data) 
+    return data
+}
