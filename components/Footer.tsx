@@ -13,27 +13,33 @@ function Footer() {
         className="object-contain"
       />
       <div className="flex items-center gap-6">
+        <a href="https://feihuan-portfolio.vercel.app" target="_blank">
         <Image
-          src="/tiktok.svg"
+          src="/phone.png"
           alt="logo"
           width={19}
           height={19}
           className="object-contain"
         />
+        </a>
+        <a href="https://linkedin.com/in/feihuan-peng-03711927a" target="_blank">
         <Image
-          src="/instagram.svg"
+          src="/linkedin.png"
           alt="logo"
           width={19}
           height={19}
           className="object-contain"
-        />
+          />
+          </a>
+          <a href="https://github.com/feihuan1" target="_blank">
         <Image
-          src="/twitter.svg"
+          src="/github.png"
           alt="logo"
           width={19}
           height={19}
           className="object-contain"
-        />
+          />
+          </a>
       </div>
     </footer>
   );
