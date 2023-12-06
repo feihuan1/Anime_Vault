@@ -2,7 +2,6 @@ import React from 'react';
 
 interface AnimeInfoProps {
   animeData: {
-    url:string,
     name: string,
     score: string,
     episodes: number,
@@ -14,7 +13,6 @@ interface AnimeInfoProps {
 const AnimeInfo = ({ animeData }: AnimeInfoProps) => {
   return (
     <div className="flex flex-col gap-4 ">
-      {/* Display specific properties with custom styles */}
       <div className="mb-4">
         <h1 className="font-bold text-3xl">{animeData.name}</h1>
       </div>
@@ -41,9 +39,9 @@ const AnimeInfo = ({ animeData }: AnimeInfoProps) => {
         </div>
 
       </div>
-      <div className="mb-12  overflow-y-auto h-[500px] max-lg:max-h-[250px]">
-        <h3 className="font-bold text-gray-500">Description:</h3>
-        <p className="text-sm">{animeData.description}</p>
+      <div className="mb-12">
+        <h3 className="font-bold text-gray-500 ">Description(Google Translate api chanrge a fee):</h3>
+        <p className="text-md max-w-md overflow-y-auto h-[450px] max-lg:max-h-[200px] mt-2 leading-5">{animeData.description}</p>
       </div>
     </div>
   );

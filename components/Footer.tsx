@@ -1,9 +1,10 @@
 import Image from "next/image";
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="sm:px-16 py-4 px-8 flex justify-between items-center gap-2 flex-wrap bg-[#161921] fixed bottom-0 w-full">
-      <p className="text-base font-bold text-white">@2023 Feihuan Peng</p>
+      <p className="text-base font-bold text-white">@{currentYear} Feihuan Peng</p>
       <Image
         src="/logo.svg"
         alt="logo"

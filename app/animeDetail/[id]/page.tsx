@@ -1,6 +1,7 @@
 import { fetchAnimeById } from "@/actions";
 import AnimeInfo from "@/components/AnimeInfo";
-import Image from "next/image";
+import Image from "next/image"; 
+import Link from "next/link";
 
 const page = async ({ params }: { params: { id: string } }) => {
   const { id } = params;
@@ -8,7 +9,6 @@ const page = async ({ params }: { params: { id: string } }) => {
   const data = await fetchAnimeById(id);
 
   const selectedData = (({
-    url,
     name,
     score,
     episodes,
@@ -16,7 +16,6 @@ const page = async ({ params }: { params: { id: string } }) => {
     duration,
     description,
   }) => ({
-    url,
     name,
     score,
     episodes,
@@ -27,16 +26,34 @@ const page = async ({ params }: { params: { id: string } }) => {
 
   return (
     <section className="w-screen min-h-screen flex flex-col md:flex-row p-12 justify-start gap-12 mt-12 max-w-7xl">
-      <div className="w-full md:w-1/2 flex items-start justify-center  ">
+      <div className="w-full md:w-1/2 flex flex-col items-center justify-start gap-3">
         <Image
           src={`https://shikimori.one${data.image.original}`}
-          width={600}
+          width={500}
           height={700}
           alt={data.name}
           className="object-contain rounded-xl"
         />
+        <div className="w-full flex  justify-evenly">
+        <a href={`https://en.wikipedia.org/wiki/${selectedData.name}`} target="_blank">
+          <button
+          type="button"
+          className=" bg-yellow-600 px-8 py-3 rounded-xl"
+          >
+            Detail
+            </button>
+        </a>
+        <Link href='/'>
+          <button
+          type="button"
+          className=" bg-red-600 px-8 py-3 rounded-xl"
+          >
+            Back
+            </button>
+        </Link>
+            </div>
       </div>
-      <div className="w-full md:w-1/2 flex flex-col gap-3 ">
+      <div className="w-full md:w-1/2 flex flex-col gap-3 items-center md:items-start mb-16">
         <AnimeInfo animeData={selectedData} />
       </div>
     </section>
